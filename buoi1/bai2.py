@@ -1,0 +1,7 @@
+a = int(input("hay nhap so dau tien : "))
+b = int(input("hay nhap so tiep theo : "))
+print (a+b)
+print (a-b)
+print (a*b)
+print (a/b)
+print (a%b)
