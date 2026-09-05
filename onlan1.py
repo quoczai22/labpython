@@ -1,4 +1,4 @@
-# câu 1 
+# bai1 câu 1 
 
 def chuyensonguyenso(n): 
     return float(n), str(n)
@@ -34,7 +34,7 @@ def namnhuan(n):
     else:
         return False
     
-# phan 2 cau 1
+# bai 2 cau 1
 #cach 1
 def insotu1den10():
     for i in range(1,11):
@@ -66,7 +66,7 @@ def vetamgiacvuong(n):
     for i in range(1,n+1):
         print("*"*i)
 
-#phan 3 cau 1
+#bai3 3 cau 1
 
 def chuyenhotenthanhchuthuong1(n):
     return str.lower(n)
@@ -116,8 +116,71 @@ def demsolanxuathiencuatu(n):
     return demtu
 
 def demsotuxuathien(n):
+    dstu=n.split()
     for i in set(dstu):
-    print(f" tu {i} xuat hien {dstu.count(i)} lan")
+        print(f" tu {i} xuat hien {dstu.count(i)} lan")
+
+# cau4
+def kiemtrachuoidoiung(n):
+    chuoi_chuan_hoa= n.lower().replace(" ","")
+
+    if chuoi_chuan_hoa==chuoi_chuan_hoa[::-1]:
+        return True
+    else:
+        return False
+
+# phần 2  bai 4 câu 1 Nhập vào một danh sách các số dưới dạng chuỗi (cách nhau bởi khoảng trắng), chuyển đổi nó thành một List các số nguyên.
+
+def chuyenchuoi_thanhlistso(n):
+    listso=n.split()
+    for i in range(len(listso)):
+        listso[i]=int(listso[i])
+    return listso
+
+# cau2
+
+def tinh_tong_va_max(n):
+    a=sum(n)
+    b=max(n)
+    return a,b
+
+#cau3 Nhập vào một List tên học sinh, sắp xếp và in ra danh sách theo thứ tự bảng chữ cái (Alphabet).
+
+def sap_xep_ten(n):
+    n.sort()
+    return n
+
+#cau4
+def tbc(n):
+    return sum(n)/len(n)
+
+# cau5
+def loaibotrunglap1(n):
+    ds_songuyen=[]
+    for i in n:
+        if i not in ds_songuyen:
+            ds_songuyen.append(i)
+    return ds_songuyen
+
+def loaibotrunglap2(n):
+    return list(set(n))
+
+def chuyenhoathanhthuong(n):
+    return n.lower()
+
+# cau6
+def tron(a,b):
+    return a+b
+
+def sapxep(n):
+    n.sort()
+    return n
+
+#bai 5 cau 1 Tạo một Set chứa 5 số nguyên. Viết code để thêm 1 phần tử mới và xóa 1 phần tử đã có.
+
+def themvaoset(s,pt):
+    s.add(pt)
+    return s
 
 def main():
     # n=int(input("Nhập số nguyên: "))
@@ -169,8 +232,66 @@ def main():
     # print("Số chữ số trong chuỗi là: ",b)
     # print("Số chữ cái trong chuỗi là: ",a)
 
-    n=str(input("Hãy nhập vào chuỗi: "))
-    print("Số lần xuất hiện của từ trong chuỗi là: ", demsolanxuathiencuatu(n))
+    # n=str(input("Hãy nhập vào chuỗi: "))
+    # print("Số lần xuất hiện của từ trong chuỗi là: ", demsolanxuathiencuatu(n))
+    # print(f"Số lần xuất hiện của từ trong chuỗi là: ", demsotuxuathien(n))
+
+    # n=str(input("Hãy nhập vào chuỗi: "))
+    # if kiemtrachuoidoiung(n):
+    #     print("Chuỗi đối xứng")
+    # else:
+    #     print("Chuỗi không đối xứng")
+
+    # n=str(input("Hãy nhập vào chuỗi các số cách nhau bởi khoảng trắng: "))
+
+    # tong_cac_so, max_so = tinh_tong_va_max(chuyenchuoi_thanhlistso(n))
+
+    # print("Danh sách các số nguyên là: ", chuyenchuoi_thanhlistso(n))
+    # print("Tổng các số là: ", tong_cac_so)
+    # print("Số lớn nhất trong danh sách là: ", max_so)
+    # print("Trung bình cộng của các số là: ", tbc(chuyenchuoi_thanhlistso(n)))
+
+    # n=int(input("Hãy nhập số lượng sinh viên mà bạn muốn nhập: "))
+    # dssv=[]
+
+    # for i in range(n):
+    #     ten_sv=str(input(f"Hãy nhập tên sinh viên thứ {i+1}: "))
+    #     dssv.append(ten_sv)
+
+    # print("Danh sách tên sinh viên sau khi sắp xếp là: ", sap_xep_ten(dssv))
+
+    # n=int(input ("Hay nhap so luong mang: "))
+    # mang=[]
+
+    # for i in range(n):
+    #     k=(input(f"Hay nhap gia tri thu {i+1}: "))
+    #     mang.append(k)
+    #     mang[i] = chuyenhoathanhthuong(mang[i])
+    # print("Mảng sau khi loại bỏ phần tử trùng lặp là: ", loaibotrunglap1(mang))
+    # print("Mảng sau khi loại bỏ phần tử trùng lặp là: ", loaibotrunglap2(mang))
+
+    # n=int(input ("Hay nhap so luong mang 1: "))
+    # mang1=[]
+
+    # m=int(input ("Hay nhap so luong mang 2: "))
+    # mang2=[]
+
+    # for i in range(n):
+    #     k=(input(f"Hay nhap gia tri thu {i+1} cua mang 1: "))
+    #     mang1.append(k)
+
+    # for i in range(m):
+    #     k=(input(f"Hay nhap gia tri thu {i+1} cua mang 2: "))
+    #     mang2.append(k)
+
+    # print("Mảng sau khi trộn và sắp xếp là: ", sapxep(tron(mang1,mang2)))
+
+    n=int(input ("Hay nhap so luong phan tu trong set: "))
+    s=set()
+    for i in range(n):
+        k=(input(f"Hay nhap gia tri thu {i+1}: "))
+        s.add(k)
+    print ("Set sau khi thêm phần tử mới là: ", themvaoset(s,(input("Hay nhap gia tri can them vao set: "))))
 
 if __name__=="__main__":
     main()
