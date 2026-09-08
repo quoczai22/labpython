@@ -1,4 +1,8 @@
 {
+    "editor.inlineSuggest.enabled": true,
+    "continuity.inlineCompletions.enabled": true,
+    "continuity.ollamaAutoStart": true,
+    "continuity.offlineAssistantModel": "qwen2.5-coder:7b",
     "version": "0.2.0",
     "configurations": [
         {
