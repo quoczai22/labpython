@@ -49,16 +49,17 @@ class SinhVien:
 
 Dưới đây là các dạng điều kiện bắt buộc hay xuất hiện trong các bài lab:
 
-| Dạng dữ liệu | Điều kiện yêu cầu | Cách viết chuẩn |
+| Trường dữ liệu | Điều kiện IF báo lỗi (Trả về False) | Giải thích ngắn gọn |
 | :--- | :--- | :--- |
-| **Chuỗi không được rỗng** | Bỏ khoảng trắng 2 đầu, không rỗng | ```python\nval = str(val).strip()\nif len(val) == 0:\n    print("Lỗi: Không được để trống!")\n    return False\nself.__val = val\nreturn True\n``` |
-| **Độ dài chuỗi cố định** (Mã SV đúng 10 ký tự) | `len != 10` | ```python\nval = str(val).strip()\nif len(val) != 10:\n    print("Lỗi: Mã phải đúng 10 ký tự!")\n    return False\nself.__ma = val\nreturn True\n``` |
-| **Độ dài tối đa / khoảng** (Tên từ 1 - 20 ký tự) | `0 < len <= 20` | ```python\nval = str(val).strip()\nif len(val) == 0 or len(val) > 20:\n    print("Lỗi: Tên từ 1 đến 20 ký tự!")\n    return False\nself.__ten = val\nreturn True\n``` |
-| **Số lượng** (Số nguyên dương) | Phải là số nguyên, `> 0` | ```python\ntry:\n    val = int(so_luong)\n    if val <= 0:\n        print("Lỗi: Số lượng phải lớn hơn 0!")\n        return False\n    self.__so_luong = val\n    return True\nexcept ValueError:\n    print("Lỗi: Số lượng phải là số nguyên!")\n    return False\n``` |
-| **Đơn giá / Tiền** (Số thực không âm) | Phải là số thực, `>= 0` | ```python\ntry:\n    val = float(gia)\n    if val < 0:\n        print("Lỗi: Giá không được âm!")\n        return False\n    self.__gia = val\n    return True\nexcept ValueError:\n    print("Lỗi: Giá phải là số hợp lệ!")\n    return False\n``` |
-| **Điểm số** (Thang điểm 0 - 10) | `0.0 <= diem <= 10.0` | ```python\ntry:\n    val = float(diem)\n    if val < 0.0 or val > 10.0:\n        print("Lỗi: Điểm phải từ 0.0 đến 10.0!")\n        return False\n    self.__diem = val\n    return True\nexcept ValueError:\n    print("Lỗi: Điểm phải là số!")\n    return False\n``` |
-| **Năm sinh** | `1900 < năm <= năm hiện tại` | ```python\nimport datetime\ntry:\n    val = int(nam)\n    nam_hien_tai = datetime.date.today().year\n    if val <= 1900 or val > nam_hien_tai:\n        print(f"Lỗi: Năm sinh phải từ 1901 đến {nam_hien_tai}!")\n        return False\n    self.__nam_sinh = val\n    return True\nexcept ValueError:\n    return False\n``` |
-| **Giá trị trong danh sách hợp lệ** (Whitelist) | Chọn loại vàng, xếp loại, mã khoa | ```python\nDS_HOP_LE = ["18k", "24k", "9999"]\nval = str(loai).strip().lower()\nif val not in DS_HOP_LE:\n    print(f"Lỗi: Chỉ chấp nhận {', '.join(DS_HOP_LE)}!")\n    return False\nself.__loai = val\nreturn True\n``` |
+| **Chuỗi để trống** | `if not str(val).strip():` | Bỏ dấu cách 2 đầu, nếu rỗng thì báo lỗi |
+| **Độ dài cố định** (Mã SV = 10 ký tự) | `if len(str(val).strip()) != 10:` | Khác 10 ký tự thì báo lỗi |
+| **Độ dài tối đa** (Tên từ 1 - 20 ký tự) | `if len(val) == 0 or len(val) > 20:` | Rỗng hoặc dài hơn 20 ký tự thì báo lỗi |
+| **Số lượng** (Phải là số nguyên > 0) | `if val <= 0:` | Nhỏ hơn hoặc bằng 0 thì báo lỗi |
+| **Đơn giá / Tiền** (Không được âm) | `if val < 0:` | Nhỏ hơn 0 thì báo lỗi |
+| **Điểm số** (Thang điểm 0 - 10) | `if val < 0 or val > 10:` | Ngoài khoảng 0 đến 10 thì báo lỗi |
+| **Năm sinh** | `import datetime`<br>`nam_nay = datetime.date.today().year`<br>`if val <= 1900 or val > nam_nay:` | Hoặc viết gộp:<br>`if val <= 1900 or val > datetime.date.today().year:` |
+| **Lựa chọn cho phép** (Whitelist) | `if val.lower() not in ["18k", "24k", "9999"]:` | Không nằm trong danh sách thì báo lỗi |
+| **Ép kiểu số an toàn** | `try: val = float(val)`<br>`except ValueError: return False` | Bắt lỗi nếu người dùng nhập chữ thay vì số |
 
 ---
 
